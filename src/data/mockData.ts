@@ -1,0 +1,166 @@
+// Mock data used while FastAPI backend is not connected
+
+import type { Doctor, Appointment, DashboardStats } from "@/types";
+
+export const mockDoctors: Doctor[] = [
+  {
+    id: 1,
+    name: "Dr. Sarah Johnson",
+    email: "sarah@medicare.com",
+    specialty: "Cardiologist",
+    phone: "+1 555-0101",
+    experience_years: 12,
+    bio: "Board-certified cardiologist with over 12 years of experience in treating heart conditions.",
+    available: true,
+  },
+  {
+    id: 2,
+    name: "Dr. Michael Chen",
+    email: "michael@medicare.com",
+    specialty: "Dermatologist",
+    phone: "+1 555-0102",
+    experience_years: 8,
+    bio: "Specializing in medical and cosmetic dermatology with a focus on skin cancer prevention.",
+    available: true,
+  },
+  {
+    id: 3,
+    name: "Dr. Emily Williams",
+    email: "emily@medicare.com",
+    specialty: "Neurologist",
+    phone: "+1 555-0103",
+    experience_years: 15,
+    bio: "Expert in diagnosing and treating disorders of the nervous system.",
+    available: false,
+  },
+  {
+    id: 4,
+    name: "Dr. James Brown",
+    email: "james@medicare.com",
+    specialty: "Orthopedic Surgeon",
+    phone: "+1 555-0104",
+    experience_years: 20,
+    bio: "Leading orthopedic surgeon specializing in joint replacement and sports medicine.",
+    available: true,
+  },
+  {
+    id: 5,
+    name: "Dr. Lisa Anderson",
+    email: "lisa@medicare.com",
+    specialty: "Pediatrician",
+    phone: "+1 555-0105",
+    experience_years: 10,
+    bio: "Passionate pediatrician dedicated to providing comprehensive care for children.",
+    available: true,
+  },
+  {
+    id: 6,
+    name: "Dr. Robert Taylor",
+    email: "robert@medicare.com",
+    specialty: "Psychiatrist",
+    phone: "+1 555-0106",
+    experience_years: 14,
+    bio: "Experienced psychiatrist focusing on anxiety, depression, and behavioral disorders.",
+    available: true,
+  },
+];
+
+export const mockPatientAppointments: Appointment[] = [
+  {
+    id: 1,
+    patient_id: 1,
+    doctor_id: 1,
+    date: "2026-02-20",
+    time: "10:00",
+    status: "confirmed",
+    reason: "Annual heart checkup",
+    doctor: mockDoctors[0],
+  },
+  {
+    id: 2,
+    patient_id: 1,
+    doctor_id: 2,
+    date: "2026-02-22",
+    time: "14:30",
+    status: "pending",
+    reason: "Skin rash consultation",
+    doctor: mockDoctors[1],
+  },
+  {
+    id: 3,
+    patient_id: 1,
+    doctor_id: 5,
+    date: "2026-01-15",
+    time: "09:00",
+    status: "completed",
+    reason: "Flu symptoms",
+    doctor: mockDoctors[4],
+  },
+  {
+    id: 4,
+    patient_id: 1,
+    doctor_id: 3,
+    date: "2026-01-10",
+    time: "11:00",
+    status: "cancelled",
+    reason: "Headache evaluation",
+    doctor: mockDoctors[2],
+  },
+];
+
+export const mockDoctorAppointments: Appointment[] = [
+  {
+    id: 101,
+    patient_id: 1,
+    doctor_id: 1,
+    date: "2026-02-20",
+    time: "10:00",
+    status: "confirmed",
+    reason: "Annual heart checkup",
+    patient: { id: 1, name: "John Smith", email: "john@mail.com", phone: "+1 555-1001", date_of_birth: "1990-05-15", gender: "Male" },
+  },
+  {
+    id: 102,
+    patient_id: 2,
+    doctor_id: 1,
+    date: "2026-02-20",
+    time: "11:30",
+    status: "pending",
+    reason: "Chest pain evaluation",
+    patient: { id: 2, name: "Maria Garcia", email: "maria@mail.com", phone: "+1 555-1002", date_of_birth: "1985-08-22", gender: "Female" },
+  },
+  {
+    id: 103,
+    patient_id: 3,
+    doctor_id: 1,
+    date: "2026-02-21",
+    time: "09:00",
+    status: "confirmed",
+    reason: "Follow-up visit",
+    patient: { id: 3, name: "David Lee", email: "david@mail.com", phone: "+1 555-1003", date_of_birth: "1978-12-01", gender: "Male" },
+  },
+  {
+    id: 104,
+    patient_id: 4,
+    doctor_id: 1,
+    date: "2026-02-18",
+    time: "15:00",
+    status: "completed",
+    reason: "Blood pressure monitoring",
+    patient: { id: 4, name: "Emma Wilson", email: "emma@mail.com", phone: "+1 555-1004", date_of_birth: "1995-03-10", gender: "Female" },
+  },
+];
+
+export const mockPatientStats: DashboardStats = {
+  total_appointments: 4,
+  upcoming_appointments: 2,
+  completed_appointments: 1,
+  cancelled_appointments: 1,
+};
+
+export const mockDoctorStats: DashboardStats = {
+  total_appointments: 4,
+  upcoming_appointments: 3,
+  completed_appointments: 1,
+  cancelled_appointments: 0,
+};
